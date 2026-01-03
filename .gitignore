@@ -1,0 +1,19 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Archivos compilados
+*.class
+*.jar
+*.war
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
