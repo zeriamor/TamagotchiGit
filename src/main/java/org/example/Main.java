@@ -1,16 +1,9 @@
 package org.example;
 
 import java.util.Scanner;
-
-//TIP Para <b>ejecutar</b> el código, pulsar <shortcut actionId="Run"/> o
-// Haz clic en el ícono <icon src="AllIcons.Actions.Execute"/> del margen.
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hola Git");
-        System.out.println("Probando menuPrincipal():");
-        int opcion = menuPrincipal();
-        System.out.println("El usuario eligió: " + opcion);
-
     }
     private static int menuPrincipal(){
         Scanner tecl=new Scanner(System.in);
