@@ -2,9 +2,15 @@ package org.example;
 
 import java.util.Scanner;
 public class Main {
+    //***** EJERCICIO 6 *****//
+    private static int saciedad=6;
+    private static int energia=6;
+    private static int diversion=6;
+    //*****************************************
     public static void main(String[] args) {
         System.out.println("Hola Git");
     }
+    //***** EJERCICIO 5 *****//
     private static int menuPrincipal(){
         Scanner tecl=new Scanner(System.in);
         int opcion;//Opcion convertida a numero
@@ -29,4 +35,43 @@ public class Main {
             }
         }
     }
+    //***** EJERCICIO 6 *****//
+    //METODO , estado mediante Sprites
+    private static void mostrarEstado(){
+        System.out.println(">>> Estado del Tamagochi <<<");
+        System.out.println("|-->Saciedad:"+saciedad+"/10");
+        System.out.println("|-->Energia:"+energia+"/10");
+        System.out.println("|-->Diversion:"+diversion+"/10");
+        //Mostrar Sprites
+        if (saciedad <= 0 || energia <= 0 || diversion <= 0) {
+            // FIN DEL JUEGO - algún estado llega a 0
+            System.out.println("\n(x_x) :( Game Over ):");
+            System.out.println("/|_|\\");
+            System.out.println(" | |");
+        } else if (saciedad <= 4) {
+            // HAMBRIENTO
+            System.out.println("\n(._.) ¡Tengo hambre!");
+            System.out.println("/|x|\\");
+            System.out.println(" | |");
+        } else if (energia <= 4) {
+            // CANSADO
+            System.out.println("\n(-_-) Zzz");
+            System.out.println("/|_|\\");
+            System.out.println(" | |");
+        } else if (diversion <= 4) {
+            // TRISTE
+            System.out.println("\n(~_-) Estoy aburrido");
+            System.out.println("/|_|\\ ¡Juega conmigo!");
+            System.out.println(" / \\");
+
+        } else if (saciedad > 5 && energia > 5 && diversion > 5) {
+            // CONTENTO
+            System.out.println("\n(*v*) ¡Estoy feliz!");
+            System.out.println("/|_|\\");
+            System.out.println(" | |");
+        }
+        System.out.println("=============================\n");
+    }
+    
 }
+
