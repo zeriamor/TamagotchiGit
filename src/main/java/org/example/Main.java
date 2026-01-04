@@ -13,6 +13,7 @@ public class Main {
         Scanner teclMain = new Scanner(System.in);
         System.out.println("Hola Git");
 
+        //***** EJERCICIO 7 *****//
         int opcion;
         System.out.println("¡Bienvenido a Tamagochi Git!");
         do {
@@ -21,8 +22,8 @@ public class Main {
                 case 1 -> {
                     mostrarEstado();
                 }
-                case 2 -> {
-                    System.out.println("Opción comer (ejercicio 8)");
+                case 2 -> { // ***** EJERCICIO 8 ***** //
+                    comer();
                 }
                 case 3 -> {
                     System.out.println("Opción jugar (ejercicio 10)");
@@ -110,5 +111,25 @@ public class Main {
         System.out.println("=============================\n");
     }
 
+    //***** EJERCICIO 8 *****//
+    //METODO para la opción comer
+    private static void comer() {
+        System.out.println(">>> Comer <<<");
+        if (saciedad < 10) {
+            saciedad += 5;
+            if (saciedad > 10) {
+                saciedad = 10;
+            }
+            diversion -= 1;
+            if (diversion < 0) {
+                diversion = 0;
+            }
+            System.out.println("Brrrp! Ahora tengo: \n|--> Saciedad: " + saciedad + "\n|--> Diversión: " + diversion);
+        } else {
+            System.out.println("No tengo hambre");
+        }
+        mostrarEstado();
+
+    }
 }
 
