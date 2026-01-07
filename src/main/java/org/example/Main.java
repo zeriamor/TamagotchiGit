@@ -111,12 +111,12 @@ public class Main {
         System.out.println("=============================\n");
     }
 
-    //***** EJERCICIO 8 *****//
+    //***** EJERCICIO 8/9 *****//
     //METODO para la opción comer
     private static void comer() {
         System.out.println(">>> Comer <<<");
         if (saciedad < 10) {
-            saciedad += 5;
+            saciedad += 3;
             if (saciedad > 10) {
                 saciedad = 10;
             }
