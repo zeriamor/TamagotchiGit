@@ -7,6 +7,8 @@ public class Main {
     private static int saciedad = 6;
     private static int energia = 6;
     private static int diversion = 6;
+    //***** EJERCICIO 16 *****//
+    private static int limpieza = 6;
 
     //*****************************************
     public static void main(String[] args) {
@@ -32,6 +34,9 @@ public class Main {
                 case 4 -> {
                     dormir();
                 }
+                case 5 -> {
+                    duchar();
+                }
 
                 case 0 -> {
                     System.out.println("Hasta pronto...");
@@ -55,13 +60,14 @@ public class Main {
             System.out.println("2. Comer");
             System.out.println("3. Jugar");
             System.out.println("4. Dormir");
+            System.out.println("5. Duchar");
             System.out.println("---");
             System.out.println("0. Salir");
             System.out.println("Selecciona una opción del menú:");
             try {
                 opcion = Integer.parseInt(tecl.nextLine());//Conversión a numero
                 //Validar 0,1,2,3 o 4.
-                if (opcion >= 0 && opcion <= 4) {
+                if (opcion >= 0 && opcion <= 5) {
                     return opcion;//Solo devuelve opciones válidas.
                 } else {
                     System.out.println("Opción no válida, intente de nuevo.");
@@ -80,8 +86,9 @@ public class Main {
         System.out.println("|-->Saciedad:" + saciedad + "/10");
         System.out.println("|-->Energia:" + energia + "/10");
         System.out.println("|-->Diversion:" + diversion + "/10");
+        System.out.println("|-->limpieza:" + limpieza + "/10");
         //Mostrar Sprites
-        if (saciedad <= 0 || energia <= 0 || diversion <= 0) {
+        if (saciedad <= 0 || energia <= 0 || diversion <= 0 || limpieza <= 0) {
             // FIN DEL JUEGO - algún estado llega a 0
             System.out.println("\n(x_x) :( Game Over ):");
             System.out.println("/|_|\\");
@@ -102,7 +109,13 @@ public class Main {
             System.out.println("/|_|\\ ¡Juega conmigo!");
             System.out.println(" / \\");
 
-        } else if (saciedad > 5 && energia > 5 && diversion > 5) {
+        }else if (limpieza <= 4) {
+        // SUCIO
+        System.out.println("\n(ºoº) ¡Apesto muchísimo!");
+        System.out.println("/|_|\\ ¡Dúchame Pardiez!");
+        System.out.println(" / \\");
+
+    }else if (saciedad > 5 && energia > 5 && diversion > 5 && limpieza > 5) {
             // CONTENTO
             System.out.println("\n(*v*) ¡Estoy feliz!");
             System.out.println("/|_|\\");
@@ -121,10 +134,17 @@ public class Main {
                 saciedad = 10;
             }
             energia -= 1;
+            limpieza-=1;
             if (energia < 0) {
                 energia = 0;
             }
-            System.out.println("Brrrp! Ahora tengo: \n|--> Saciedad: " + saciedad + "\n|--> Diversión: " + diversion);
+            if(limpieza<0){
+                limpieza=0;
+            }
+            System.out.println("Brrrp! Ahora tengo:");
+            System.out.println("|--> Saciedad: " + saciedad);
+            System.out.println("|--> Energía: " + energia);
+            System.out.println("|--> Limpieza: " + limpieza);
         } else {
             System.out.println("No tengo hambre");
         }
@@ -141,11 +161,15 @@ public class Main {
             }
             saciedad-=2;
             energia-=1;
+            limpieza-=3;
             if (saciedad<0) {
                 saciedad = 0;
             }
             if(energia<0){
                 energia=0;
+            }
+            if(limpieza<0){
+                limpieza=0;
             }
             System.out.println("¡Yuhuu! Ahora tengo:");
             System.out.println("|--> Diversión: " + diversion);
@@ -168,11 +192,15 @@ public class Main {
             }
             saciedad-=2;
             diversion-=1;
+            limpieza-=1;
             if (saciedad<0) {
                 saciedad = 0;
             }
             if(diversion<0){
                 diversion=0;
+            }
+            if(limpieza<0){
+                limpieza=0;
             }
             System.out.println("¡Yuhuu! Ahora tengo:");
             System.out.println("|--> Diversión: " + diversion);
@@ -181,9 +209,28 @@ public class Main {
         }else {
             System.out.println("No tengo sueño");
         }
+        mostrarEstado();
+    }
+    //***** EJERCICIO 16 *****//
+    private static void duchar() {
+        System.out.println(">>> Duchar <<<");
+
+        if (limpieza < 10) {
+            limpieza += 4;
+            if (limpieza > 10) limpieza = 10;
+
+            energia -= 1;
+            if (energia < 0) energia = 0;
+
+            System.out.println("¡Splash! Ahora estoy limpio:");
+            System.out.println("|--> Limpieza: " + limpieza + "/10");
+            System.out.println("|--> Energía: " + energia + "/10");
+        } else {
+            System.out.println("Ya estoy limpio, no necesito ducharme");
+        }
 
         mostrarEstado();
-
     }
+
 }
 
