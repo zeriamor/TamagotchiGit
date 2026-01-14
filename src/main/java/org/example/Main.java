@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     //***** EJERCICIO 6 *****//
     private static int saciedad = 6;
-    private static int energia = 6;
+    private static int energia = 10;
     private static int diversion = 6;
 
     //*****************************************
@@ -26,7 +26,7 @@ public class Main {
                     comer();
                 }
                 case 3 -> {
-                    System.out.println("Opción jugar (ejercicio 10)");
+                    jugar();
                 }
 
                 case 4 -> {
@@ -38,7 +38,7 @@ public class Main {
                 }
 
                 default -> {
-                    throw new IllegalStateException("Unexpected value: " + opcion);
+                    System.out.println("Error: Opción " + opcion + " no manejada");
                 }
             }
         } while (opcion != 0);
@@ -128,6 +128,33 @@ public class Main {
         } else {
             System.out.println("No tengo hambre");
         }
+        mostrarEstado();
+
+    }
+    //***** EJERCICIO 10 *****//
+    private static void jugar(){
+        System.out.println(">>> Jugar <<<");
+        if (diversion<10){
+            diversion+=3;
+            if (diversion>10) {
+                diversion = 10;
+            }
+            saciedad-=1;
+            energia-=1;
+            if (saciedad<0) {
+                saciedad = 0;
+            }
+            if(energia<0){
+                energia=0;
+            }
+            System.out.println("¡Yuhuu! Ahora tengo:");
+            System.out.println("|--> Diversión: " + diversion);
+            System.out.println("|--> Saciedad: " + saciedad);
+            System.out.println("|--> Energía: " + energia);
+        }else {
+            System.out.println("Ahora no quiero jugar");
+        }
+
         mostrarEstado();
 
     }
