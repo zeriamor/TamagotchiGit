@@ -116,13 +116,13 @@ public class Main {
     private static void comer() {
         System.out.println(">>> Comer <<<");
         if (saciedad < 10) {
-            saciedad += 3;
+            saciedad += 2;
             if (saciedad > 10) {
                 saciedad = 10;
             }
-            diversion -= 1;
-            if (diversion < 0) {
-                diversion = 0;
+            energia -= 1;
+            if (energia < 0) {
+                energia = 0;
             }
             System.out.println("Brrrp! Ahora tengo: \n|--> Saciedad: " + saciedad + "\n|--> Diversión: " + diversion);
         } else {
@@ -139,7 +139,7 @@ public class Main {
             if (diversion>10) {
                 diversion = 10;
             }
-            saciedad-=1;
+            saciedad-=2;
             energia-=1;
             if (saciedad<0) {
                 saciedad = 0;
@@ -166,8 +166,8 @@ public class Main {
             if (energia>10) {
                 energia = 10;
             }
-            saciedad-=3;
-            diversion-=2;
+            saciedad-=2;
+            diversion-=1;
             if (saciedad<0) {
                 saciedad = 0;
             }
