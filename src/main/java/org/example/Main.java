@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     //***** EJERCICIO 6 *****//
     private static int saciedad = 6;
-    private static int energia = 10;
+    private static int energia = 6;
     private static int diversion = 6;
 
     //*****************************************
@@ -30,7 +30,7 @@ public class Main {
                 }
 
                 case 4 -> {
-                    System.out.println("Opción dormir (ejercicio 11)");
+                    dormir();
                 }
 
                 case 0 -> {
@@ -153,6 +153,33 @@ public class Main {
             System.out.println("|--> Energía: " + energia);
         }else {
             System.out.println("Ahora no quiero jugar");
+        }
+
+        mostrarEstado();
+
+    }
+    //***** EJERCICIO 11 *****//
+    private static void dormir(){
+        System.out.println(">>> Dormir <<<");
+        if (energia<10){
+            energia+=3;
+            if (energia>10) {
+                energia = 10;
+            }
+            saciedad-=3;
+            diversion-=2;
+            if (saciedad<0) {
+                saciedad = 0;
+            }
+            if(diversion<0){
+                diversion=0;
+            }
+            System.out.println("¡Yuhuu! Ahora tengo:");
+            System.out.println("|--> Diversión: " + diversion);
+            System.out.println("|--> Saciedad: " + saciedad);
+            System.out.println("|--> Energía: " + energia);
+        }else {
+            System.out.println("No tengo sueño");
         }
 
         mostrarEstado();
